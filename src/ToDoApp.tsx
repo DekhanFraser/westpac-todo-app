@@ -7,8 +7,20 @@ const mockData = [
     { id: 3, todo: 'Implement completing items', completed: true },
 ]
 
+const LOCAL_STORAGE_KEY = 'todo-app-tasks'
+
 function ToDoApp() {
-    const [tasks, setTasks] = useState<Task[]>([])
+    const [tasks, setTasks] = useState<Task[]>(() => {
+        const localTasks = localStorage.getItem(LOCAL_STORAGE_KEY)
+        if (localTasks) {
+            try {
+                return JSON.parse(localTasks)
+            } catch {
+                return []
+            }
+        }
+        return []
+    })
     const [newTask, setNewTask] = useState<string>('')
 
     useEffect(() => {
@@ -19,6 +31,10 @@ function ToDoApp() {
                 .then((data) => setTasks(data))
         }
     }, [tasks.length])
+
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tasks))
+    }, [tasks])
 
     // Basic functions
     // Todo:

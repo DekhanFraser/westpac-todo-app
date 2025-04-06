@@ -24,5 +24,5 @@ Use React and TypeScript for the implementation.\
 Ensure the code is clean, well-organized, and follows best practices (Unit test, etc)
 
 Bonus (Optional):\
-Implement local storage to persist the tasks between page reloads.\
+✅ Implement local storage to persist the tasks between page reloads.\
 ✅ Add a feature to delete tasks from the list.
