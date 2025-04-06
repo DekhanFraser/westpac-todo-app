@@ -61,7 +61,7 @@ function ToDoApp() {
                     {tasks.map((task) => {
                         return (
                             <li key={task.id}>
-                                <span className="text">{task.todo}</span>
+                                <span className={`text${task.completed ? ' completed' : ''}`}>{task.todo}</span>
                                 <button className="complete-button" onClick={() => completeTask(task.id)}>
                                     ✅
                                 </button>

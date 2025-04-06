@@ -1,0 +1,56 @@
+.to-do-app {
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    margin-top: 100px;
+}
+h1 {
+    font-size: 4rem;
+}
+input[type='text'] {
+    font-size: 1.6rem;
+    padding: 12px;
+    border: 2px solid hsla(0, 0%, 70%, 0.5);
+    border-radius: 5px;
+    color: hsla(0, 0%, 0%, 0.5);
+}
+button {
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 14px 15px;
+    margin-left: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5 ease;
+}
+.add-button {
+    background-color: hsl(125, 45%, 55%);
+}
+.add-button:hover {
+    background-color: hsl(125, 45%, 45%);
+}
+.complete-button {
+    background-color: hsl(0, 0%, 100%);
+}
+.complete-button:hover {
+    background-color: hsl(125, 47%, 70%);
+}
+li {
+    list-style: none;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 15px;
+    background-color: hsl(0, 0%, 95%);
+    margin-bottom: 10px;
+    border: 2px solid hsla(0, 0%, 85%, 0.75);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+.text {
+    flex: 1;
+}
+.completed {
+    text-decoration: line-through;
+}
