@@ -1,5 +1,7 @@
+import ToDoApp from './ToDoApp'
+
 function App() {
-    return <></>
+    return <ToDoApp />
 }
 
 export default App
