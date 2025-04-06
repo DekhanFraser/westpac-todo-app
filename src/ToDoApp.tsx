@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react'
+import { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react'
 import { Task } from './models/Task'
 
 const LOCAL_STORAGE_KEY = 'todo-app-tasks'
@@ -16,8 +16,6 @@ function ToDoApp() {
         return []
     })
     const [newTask, setNewTask] = useState<string>('')
-
-    console.log(tasks)
 
     useEffect(() => {
         if (tasks.length === 0) {
@@ -37,6 +35,11 @@ function ToDoApp() {
     // 1. Handle input from "Add task" field
     function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
         setNewTask(event.target.value)
+    }
+
+    // 5, Handle Enter key in input field
+    function handleKeyPress(event: KeyboardEvent<HTMLInputElement>) {
+        if (event.key === 'Enter') addTask()
     }
 
     // 2. Add new task
@@ -69,7 +72,7 @@ function ToDoApp() {
             <h1>Westpac ToDo App</h1>
 
             <div className="new-task-input">
-                <input type="text" placeholder="Enter new task..." value={newTask} onChange={handleInputChange} />
+                <input type="text" placeholder="Enter new task..." value={newTask} onChange={handleInputChange} onKeyDown={handleKeyPress} />
                 <button className="add-button" onClick={addTask}>
                     Add
                 </button>
