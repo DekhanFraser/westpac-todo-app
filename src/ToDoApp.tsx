@@ -9,7 +9,6 @@ function ToDoApp() {
     ])
     const [newTask, setNewTask] = useState<string>('')
 
-    console.log(tasks)
     // Basic functions
     // Todo:
     // 1. Handle input from "Add task" field
@@ -18,10 +17,22 @@ function ToDoApp() {
     }
 
     // 2. Add new task
-    function addTask() {}
+    function addTask() {
+        // Check if input is field is empty so as to forbid adding empty tasks
+        if (newTask.trim() !== '') {
+            const newItem: Task = {
+                id: Date.now(),
+                todo: newTask.trim(),
+                completed: false,
+            }
+            setTasks((prev) => [newItem, ...prev])
+        }
+    }
 
     // 3. Complete task
-    function completeTask(id: number) {}
+    function completeTask(id: number) {
+        setTasks((prev) => prev.map((task) => (task.id === id ? { ...task, completed: !task.completed } : task)))
+    }
 
     return (
         <>

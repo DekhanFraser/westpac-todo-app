@@ -8,14 +8,14 @@ Fetch Initial Tasks:\
 Use the following API to fetch the initial list of tasks: https://dummyjson.com/todos.\
 Display the fetched tasks in a list format.\
 Mark Task as Completed:\
-Implement functionality to mark a task as completed by clicking a "Complete" button next to each task.\
+✅ Implement functionality to mark a task as completed by clicking a "Complete" button next to each task.\
 When a task is marked as completed, visually indicate this change (e.g., by striking through the task text).\
 No backend request is needed to update the task status.\
 
 Add New Task:\
-Provide an input field and a button to add a new task.\
-When a new task is added, it should appear in the list of tasks.\
-No backend request is needed to add the new task.\
+✅ Provide an input field and a button to add a new task.\
+✅ When a new task is added, it should appear in the list of tasks.\
+✅ No backend request is needed to add the new task.\
 
 Guidelines:\
 Use React and TypeScript for the implementation.\
