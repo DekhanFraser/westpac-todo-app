@@ -1,13 +1,24 @@
-import React, { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { Task } from './models/Task'
 
+const mockData = [
+    { id: 1, todo: 'Implement fetching from DummyJSON', completed: true },
+    { id: 2, todo: 'Implement adding new items', completed: true },
+    { id: 3, todo: 'Implement completing items', completed: true },
+]
+
 function ToDoApp() {
-    const [tasks, setTasks] = useState<Task[]>([
-        { id: 1, todo: 'Implement fetching from DummyJSON', completed: false },
-        { id: 2, todo: 'Implement adding new items', completed: false },
-        { id: 3, todo: 'Implement completing items', completed: false },
-    ])
+    const [tasks, setTasks] = useState<Task[]>([])
     const [newTask, setNewTask] = useState<string>('')
+
+    useEffect(() => {
+        if (tasks.length === 0) {
+            // Limit to just the first 10 items for the sake of brevity
+            fetch('https://dummyjson.com/todos?limit=10')
+                .then((res) => res.json())
+                .then((data) => setTasks(data.todos))
+        }
+    }, [tasks.length])
 
     // Basic functions
     // Todo:
