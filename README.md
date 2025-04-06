@@ -16,7 +16,7 @@ No backend request is needed to update the task status.
 Add New Task:\
 ✅ Provide an input field and a button to add a new task.\
 ✅ When a new task is added, it should appear in the list of tasks.\
-✅ No backend request is needed to add the new task.
+No backend request is needed to add the new task.
 
 Guidelines:\
 Use React and TypeScript for the implementation.\
@@ -25,4 +25,4 @@ Ensure the code is clean, well-organized, and follows best practices (Unit test,
 
 Bonus (Optional):\
 Implement local storage to persist the tasks between page reloads.\
-Add a feature to delete tasks from the list.
+✅ Add a feature to delete tasks from the list.

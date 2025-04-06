@@ -14,9 +14,9 @@ function ToDoApp() {
     useEffect(() => {
         if (tasks.length === 0) {
             // Limit to just the first 10 items for the sake of brevity
-            fetch('https://dummyjson.com/todos?limit=10')
+            fetch('https://dummyjson.com/todos/random/10')
                 .then((res) => res.json())
-                .then((data) => setTasks(data.todos))
+                .then((data) => setTasks(data))
         }
     }, [tasks.length])
 
@@ -37,6 +37,7 @@ function ToDoApp() {
                 completed: false,
             }
             setTasks((prev) => [newItem, ...prev])
+            setNewTask('')
         }
     }
 
@@ -45,12 +46,18 @@ function ToDoApp() {
         setTasks((prev) => prev.map((task) => (task.id === id ? { ...task, completed: !task.completed } : task)))
     }
 
+    // 4. Delete task
+    function deleteTask(id: number) {
+        const updatedTasks = tasks.filter((task) => task.id !== id)
+        setTasks(updatedTasks)
+    }
+
     return (
         <>
             <div className="to-do-app">
                 <h1>Westpac ToDo App</h1>
 
-                <div>
+                <div className="new-task-input">
                     <input type="text" placeholder="Enter new task..." value={newTask} onChange={handleInputChange} />
                     <button className="add-button" onClick={addTask}>
                         Add
@@ -64,6 +71,9 @@ function ToDoApp() {
                                 <span className={`text${task.completed ? ' completed' : ''}`}>{task.todo}</span>
                                 <button className="complete-button" onClick={() => completeTask(task.id)}>
                                     ✅
+                                </button>
+                                <button className="delete-button" onClick={() => deleteTask(task.id)}>
+                                    ❌
                                 </button>
                             </li>
                         )
