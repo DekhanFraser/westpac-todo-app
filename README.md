@@ -1,54 +1,26 @@
-# React + TypeScript + Vite
+Test Assignment: Todo List Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Objective: Create a simple todo list application using React and TypeScript. The application should fetch initial tasks from an API, allow users to mark tasks as completed, and add new tasks to the UI.
 
-Currently, two official plugins are available:
+Requirements:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Fetch Initial Tasks:
+Use the following API to fetch the initial list of tasks: https://dummyjson.com/todos.
+Display the fetched tasks in a list format.
+Mark Task as Completed:
+Implement functionality to mark a task as completed by clicking a "Complete" button next to each task.
+When a task is marked as completed, visually indicate this change (e.g., by striking through the task text).
+No backend request is needed to update the task status.
+Add New Task:
+Provide an input field and a button to add a new task.
+When a new task is added, it should appear in the list of tasks.
+No backend request is needed to add the new task.
+Guidelines:
 
-## Expanding the ESLint configuration
+Use React and TypeScript for the implementation.
+Style the application using CSS to make it visually appealing.
+Ensure the code is clean, well-organized, and follows best practices (Unit test, etc)
+Bonus (Optional):
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Implement local storage to persist the tasks between page reloads.
+Add a feature to delete tasks from the list.
