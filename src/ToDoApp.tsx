@@ -1,7 +1,12 @@
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react'
-import { Task } from './models/Task'
 
 const LOCAL_STORAGE_KEY = 'todo-app-tasks'
+
+interface Task {
+    id: number
+    todo: string
+    completed: boolean
+}
 
 function ToDoApp() {
     const [tasks, setTasks] = useState<Task[]>(() => {
@@ -58,11 +63,14 @@ function ToDoApp() {
 
     // 3. Complete task
     function completeTask(id: number) {
+        // Force to use mapping for states. Would be better to use immutable state manager like Redux toolkit.
         setTasks((prev) => prev.map((task) => (task.id === id ? { ...task, completed: !task.completed } : task)))
     }
 
     // 4. Delete task
     function deleteTask(id: number) {
+        // Force to use mapping for states. Would be better to use immutable state manager like Redux toolkit.
+        // Could use Object of Task objects to remove by querying key ID
         const updatedTasks = tasks.filter((task) => task.id !== id)
         setTasks(updatedTasks)
     }
@@ -82,7 +90,7 @@ function ToDoApp() {
                 {tasks.map((task) => {
                     return (
                         <li key={task.id}>
-                            <span className={`text${task.completed ? ' completed' : ''}`}>{task.todo}</span>
+                            <span className={`text ${task.completed ? 'completed' : ''}`}>{task.todo}</span>
                             <button className="complete-button" onClick={() => completeTask(task.id)}>
                                 ✅
                             </button>

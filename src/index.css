@@ -1,10 +1,34 @@
+:root {
+    /* Primary UI Palette */
+    --primary: #da1710; /* Primary */
+    --hero: #1f1c4f; /* Hero */
+    --neutral: #2a2e42; /* Neutral */
+    --heading: #1f1c4f; /* Heading */
+    --text: #181b25; /* Text */
+    --border: #dedee1; /* Border */
+    --background: #f3f4f6; /* Background */
+    --light: #f9f9fb; /* Light */
+
+    /* Secondary Colours */
+    --light-grey: #e8e8ed;
+
+    /* Reserved Colours */
+    --success: #008000;
+
+    /* Data Visualisation Colours */
+    --data-a-tint: #ec8a87;
+}
+body {
+    background-color: var(--background);
+}
 .to-do-app {
-    font-family: Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     text-align: center;
     margin-top: 100px;
 }
 h1 {
     font-size: 4rem;
+    color: var(--primary);
 }
 .new-task-input {
     display: flex;
@@ -14,12 +38,12 @@ h1 {
     gap: 10px;
 }
 input[type='text'] {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     padding: 12px;
     margin-left: 22px;
     border: 2px solid hsla(0, 0%, 70%, 0.5);
     border-radius: 5px;
-    color: hsla(0, 0%, 0%, 1);
+    color: var(--text);
     flex: 1;
 }
 button {
@@ -34,36 +58,38 @@ button {
     transition: background-color 0.5 ease;
 }
 .add-button {
-    background-color: hsl(125, 45%, 55%);
+    background-color: hsla(125, 45%, 55%);
 }
 .add-button:hover {
-    background-color: hsl(125, 45%, 45%);
+    background-color: var(--success);
 }
 .complete-button {
-    background-color: hsl(0, 0%, 95%);
+    background-color: hsla(0, 0%, 100%, 0);
 }
 .complete-button:hover {
     background-color: hsl(125, 47%, 70%);
 }
 .delete-button {
-    background-color: hsl(0, 0%, 95%);
+    background-color: hsla(0, 0%, 100%, 0);
 }
 .delete-button:hover {
-    background-color: hsl(10, 90%, 80%);
+    background-color: var(--data-a-tint);
 }
+
 ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+
 li {
     list-style: none;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: bold;
     padding: 5px;
-    background-color: hsl(0, 0%, 95%);
-    margin-bottom: 10px;
-    border: 2px solid hsla(0, 0%, 85%, 0.75);
+    background-color: var(--light-grey);
+    margin-bottom: 5px;
+    border: 2px solid var(--border);
     border-radius: 5px;
     display: flex;
     max-width: 50%;
@@ -73,16 +99,20 @@ li {
     flex-grow: 1;
     transition: background-color 0.5 ease;
 }
+
 li:hover {
-    background-color: aliceblue;
+    background-color: var(--light);
 }
+
 li span {
     padding-left: 10px;
     text-align: left;
 }
+
 .text {
     flex: 1;
 }
+
 .completed {
     text-decoration: line-through;
 }

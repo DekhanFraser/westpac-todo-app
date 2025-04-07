@@ -2,17 +2,18 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import ToDoApp from './ToDoApp'
 
-beforeEach(() => {
-    jest.spyOn(global, 'fetch').mockResolvedValue({
-        json: async () => [{ id: 1, todo: 'Test task', completed: false }],
-    } as Response)
-})
-
-afterEach(() => {
-    jest.restoreAllMocks()
-})
-
 describe('ToDoList', () => {
+    beforeEach(() => {
+        jest.spyOn(global, 'fetch').mockResolvedValue({
+            json: async () => [{ id: 1, todo: 'Test task', completed: false }],
+        } as Response)
+    })
+
+    afterEach(() => {
+        jest.restoreAllMocks()
+        window.localStorage.clear()
+    })
+
     test('pulls  and renders initial tasks from the API', async () => {
         render(<ToDoApp />)
 
@@ -34,11 +35,11 @@ describe('ToDoList', () => {
     test('deletes a task', async () => {
         render(<ToDoApp />)
 
-        const deleteButton = (await screen.findAllByText('❌'))[0] as HTMLButtonElement
+        const deleteButton = (await screen.findByText('❌')) as HTMLButtonElement
         fireEvent.click(deleteButton)
 
         await waitFor(() => {
-            const taskText = screen.getByText('Test task')
+            const taskText = screen.queryByText('Test task')
             expect(taskText).not.toBeInTheDocument()
         })
     })
@@ -46,7 +47,7 @@ describe('ToDoList', () => {
     test('marks a task as completed', async () => {
         render(<ToDoApp />)
 
-        const completeButton = (await screen.findAllByText('✅'))[0] as HTMLButtonElement
+        const completeButton = (await screen.findByText('✅')) as HTMLButtonElement
         fireEvent.click(completeButton)
 
         await waitFor(() => {

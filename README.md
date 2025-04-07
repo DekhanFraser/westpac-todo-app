@@ -19,9 +19,9 @@ Add New Task:\
 No backend request is needed to add the new task.
 
 Guidelines:\
-Use React and TypeScript for the implementation.\
+✅ Use React and TypeScript for the implementation.\
 ✅ Style the application using CSS to make it visually appealing.\
-Ensure the code is clean, well-organized, and follows best practices (Unit test, etc)
+✅ Ensure the code is clean, well-organized, and follows best practices (Unit test, etc)
 
 Bonus (Optional):\
 ✅ Implement local storage to persist the tasks between page reloads.\
